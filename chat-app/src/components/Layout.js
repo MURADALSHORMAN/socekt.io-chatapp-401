@@ -20,9 +20,7 @@ export default class Layout extends Component {
 		this.initSocket()
 	}
 
-	/*
-	*	Connect to and initializes the socket.
-	*/
+	
 	initSocket = ()=>{
 		const socket = io(socketUrl)
 
@@ -52,19 +50,14 @@ export default class Layout extends Component {
 		})
 	}
 
-	/*
-	* 	Sets the user property in state 
-	*	@param user {id:number, name:string}
-	*/	
+		
 	setUser = (user)=>{
 		const { socket } = this.state
 		socket.emit(USER_CONNECTED, user);
 		this.setState({user})
 	}
 
-	/*
-	*	Sets the user property in state to null.
-	*/
+	
 	logout = ()=>{
 		const { socket } = this.state
 		socket.emit(LOGOUT)
